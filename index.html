@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Empakkaran</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empakkaran BurpLog 🎉</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Canvas-Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+  <div class="container">
+    <h1>Empakkaran BurpLog 🎉</h1>
+    <p>Track your burps — fun and helpful!</p>
 
-  <h1> Empakkaran BurpLog</h1>
-  <p>Track your burps — fun and helpful!</p>
+    <div class="controls">
+      <button id="startBtn">Start Listening (Enable mic & sound)</button>
+      <button id="manualBtn">I Just Burped</button>
+    </div>
 
-  <button onclick="logBurp()">I Just Burped</button>
+    <audio id="burpAudio" src="burp.mp3" preload="auto"></audio>
 
-  <h2>Burps Today: <span id="burpCount">0</span></h2>
+    <div id="message" class="funny-message"></div>
 
-  <div id="history">
-    <h3>Burp History:</h3>
-    <ul id="burpList"></ul>
+    <h2>Burps Today: <span id="burpCount">0</span></h2>
+
+    <div id="history">
+      <h3>Burp History:</h3>
+      <ul id="burpList"></ul>
+    </div>
   </div>
+
+  <!-- floating emoji container -->
+  <div id="background"></div>
 
   <script src="script.js"></script>
 </body>

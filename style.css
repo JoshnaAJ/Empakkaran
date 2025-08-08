@@ -1,98 +1,89 @@
-/* Funny & Colorful BurpLog Style */
-
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+:root {
+  --accent: #ff66cc;
+  --bg1: #fceabb;
+  --bg2: #f8b500;
+}
+
+html,body { height:100%; margin:0; padding:0; }
 
 body {
   font-family: 'Comic Neue', cursive;
   text-align: center;
-  background: linear-gradient(to bottom right, #fceabb, #f8b500);
-  background-size: cover;
+  background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
   color: #4e2600;
   padding: 20px;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
 }
 
-h1 {
-  color: #783f04;
-  font-size: 2.8em;
-  margin-bottom: 10px;
+.container {
+  position: relative;
+  z-index: 3; /* on top of background emojis */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
+h1 { color: #783f04; font-size: 2.4rem; margin-bottom: 6px; }
+p  { font-size: 1.1rem; margin-bottom: 20px; }
+
+.controls { display:flex; gap:12px; justify-content:center; margin-bottom: 12px; }
 
 button {
-  font-size: 20px;
-  padding: 15px 30px;
+  font-size: 18px;
+  padding: 12px 20px;
   background-color: #ffcc00;
   border: 3px dashed #884400;
-  border-radius: 15px;
+  border-radius: 12px;
   cursor: pointer;
-  animation: bounce 2s infinite;
-  transition: transform 0.2s;
+  transition: transform .15s ease, background-color .15s;
 }
 
-button:hover {
-  transform: scale(1.1);
+button:hover { transform: scale(1.05); background-color:#ffd666; }
+
+.funny-message {
+  font-size: 1rem;
+  margin-top: 12px;
+  min-height: 1.4rem;
+  color: #660033;
+  transition: opacity .4s ease;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-h2, h3 {
-  margin-top: 30px;
-  color: #5e3202;
-}
-
-#history {
-  margin-top: 20px;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 400px;
-}
-
+#history { margin-top: 20px; max-height: 220px; overflow-y: auto; }
+ul { list-style:none; padding:0; margin:0 auto; max-width:460px; }
 li {
-  background-color: #fff7d1;
-  margin: 6px auto;
-  padding: 8px 15px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  background: #fff7d1;
+  margin:6px auto;
+  padding:8px 12px;
+  border-radius:8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
 }
 
-/* Add burping emoji background */
-body::before {
-  content: "💨💥🫢😮‍💨💭";
-  font-size: 90px;
-  opacity: 0.06;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: movebg 40s linear infinite;
-  z-index: 0;
-}
-
-@keyframes movebg {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Ensure content is on top of background emojis */
-body > * {
-  position: relative;
+/* floating emoji (created dynamically) */
+#background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
   z-index: 1;
+}
+
+.emoji {
+  position: absolute;
+  top: 100vh; /* start below screen */
+  font-size: 2.2rem;
+  will-change: transform, opacity;
+  animation: floatAndSpin linear forwards;
+}
+
+@keyframes floatAndSpin {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-120vh) translateX(var(--x-shift, 0vw)) rotate(720deg); opacity: 0; }
+}
+
+/* small responsive tweaks */
+@media (max-width:600px) {
+  h1 { font-size: 1.8rem; }
+  .controls { flex-direction: column; }
+  .emoji { font-size: 1.8rem; }
 }
