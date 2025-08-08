@@ -4,23 +4,27 @@
   --accent: #ff66cc;
   --bg1: #fceabb;
   --bg2: #f8b500;
+  --text: #4e2600;
+  --card-bg: #fff7d1;
+  --border: #884400;
+  --shadow: rgba(0,0,0,0.08);
 }
 
-html,body { height:100%; margin:0; padding:0; }
+html, body { height: 100%; margin: 0; padding: 0; }
 
 body {
   font-family: 'Comic Neue', cursive;
   text-align: center;
   background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
-  color: #4e2600;
+  color: var(--text);
   padding: 20px;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
 }
 
 .container {
   position: relative;
-  z-index: 3; /* on top of background emojis */
+  z-index: 3;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -28,16 +32,17 @@ body {
 h1 { color: #783f04; font-size: 2.4rem; margin-bottom: 6px; }
 p  { font-size: 1.1rem; margin-bottom: 20px; }
 
-.controls { display:flex; gap:12px; justify-content:center; margin-bottom: 12px; }
+.controls { display:flex; gap:12px; justify-content:center; margin-bottom: 12px; flex-wrap: wrap; }
 
 button {
   font-size: 18px;
   padding: 12px 20px;
   background-color: #ffcc00;
-  border: 3px dashed #884400;
+  border: 3px dashed var(--border);
   border-radius: 12px;
   cursor: pointer;
   transition: transform .15s ease, background-color .15s;
+  color: var(--text);
 }
 
 button:hover { transform: scale(1.05); background-color:#ffd666; }
@@ -46,18 +51,18 @@ button:hover { transform: scale(1.05); background-color:#ffd666; }
   font-size: 1rem;
   margin-top: 12px;
   min-height: 1.4rem;
-  color: #660033;
+  color: var(--accent);
   transition: opacity .4s ease;
 }
 
-#history { margin-top: 20px; max-height: 220px; overflow-y: auto; }
+#history { margin-top: 20px; max-height: 260px; overflow-y: auto; }
 ul { list-style:none; padding:0; margin:0 auto; max-width:460px; }
 li {
-  background: #fff7d1;
+  background: var(--card-bg);
   margin:6px auto;
   padding:8px 12px;
   border-radius:8px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 2px 2px 6px var(--shadow);
 }
 
 /* floating emoji (created dynamically) */
@@ -70,7 +75,7 @@ li {
 
 .emoji {
   position: absolute;
-  top: 100vh; /* start below screen */
+  top: 100vh;
   font-size: 2.2rem;
   will-change: transform, opacity;
   animation: floatAndSpin linear forwards;
