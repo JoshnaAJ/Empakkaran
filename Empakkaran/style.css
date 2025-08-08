@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fefae0;
+  padding: 20px;
+}
+
+h1 {
+  color: #bc6c25;
+}
+
+button {
+  font-size: 20px;
+  padding: 15px 30px;
+  background-color: #dda15e;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#history {
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+}
