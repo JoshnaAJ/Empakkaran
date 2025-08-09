@@ -66,14 +66,14 @@ npm start
 For Software:
 
 # Screenshots (Add at least 3)
-!<img width="1352" height="609" alt="emp1" src="https://github.com/user-attachments/assets/9711c229-fcc0-4267-b9e6-9c10ee7344b7" />
+<img width="1352" height="609" alt="emp1" src="https://github.com/user-attachments/assets/9711c229-fcc0-4267-b9e6-9c10ee7344b7" />
 *Homepage where you prepare for the burp of your life.*
 
-!<img width="1352" height="609" alt="emp1" src="https://github.com/user-attachments/assets/cd9ee0b7-c0e7-462c-9e1d-350a9514647a" />
+<img width="1352" height="609" alt="emp1" src="https://github.com/user-attachments/assets/cd9ee0b7-c0e7-462c-9e1d-350a9514647a" />
 
 *Live burp detection in action.*
 
-!<img width="1341" height="657" alt="emp2" src="https://github.com/user-attachments/assets/0e3e186f-fda2-48d2-85cd-7803d6a7760b" />
+<img width="1341" height="657" alt="emp2" src="https://github.com/user-attachments/assets/0e3e186f-fda2-48d2-85cd-7803d6a7760b" />
 
 *Leaderboard showcasing legends of the burp world.*
 
